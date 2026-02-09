@@ -95,7 +95,7 @@ app.get("/womens", (req, res) =>{
 // Task 5: Set up the route handler for /item/0 which sends back the first item in product.ejs
 app.get("/item/:id", (req, res) =>{
   const theID = req.params.id
-  res.render('product.ejs', inventory.items[theID])
+  res.render('product.ejs', inventory[0].items[theID])
 })
 
 

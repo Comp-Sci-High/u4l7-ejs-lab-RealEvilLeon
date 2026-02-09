@@ -22,12 +22,12 @@
         <!-- Use the name attribute to set the h2 -->
         <h2 class="center"><%= name %></h2>
         <!-- Use the imageUrl attribute to fix the image -->
-        <img src=<%= items.imageUrl %> class="main-image">
+        <img src=<%= imageUrl %> class="main-image">
         <div class="color-options">
           <!-- PINK ONLY: Iterate over the colors array to make a color-option div for each color. Plug in the color into the background-color slot. -->
 <% for(let i = 0; i < colors.length; i++){ %>
 
-<div class="color-option" style="background-color:" ></div>
+<div class="color-option" style="background-color: <%= colors[i] %>;" ></div>
 
 <% } %>
         </div>
@@ -37,10 +37,29 @@
         <!-- Use conditions to show the first button if the quantity is over 0. Otherwise, show the Sold Out button. -->
 
            <!-- Extra credit: Add JS such that when the Buy Now button is clicked, you add HTML underneath it that says "Added to cart" (review DOM manipulation!) -->
+<% if(quantity > 0){ %>
 
-          <button class="buy-now-button center">Buy Now</button>
+<button class="buy-now-button center">Buy Now</button>
+<div id="cartMessage"></div>
+<script>
+let button = document.querySelector("#buy-now-button-center")
+
+function addedToCart(){
+ let text = document.createElement("h6")
+let 
+}
+
+button.addEventListener('click', addedToCart())
+
+</script>
+
+<% } else{ %>
+
+<button class="buy-now-button" disabled>Sold Out</button>
+
+<% } %>
         
-          <button class="buy-now-button" disabled>Sold Out</button>
+         
       
   
     </div>
